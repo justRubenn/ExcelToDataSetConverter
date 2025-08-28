@@ -13,25 +13,25 @@ namespace ExcelConverter.Logics
     {
         private DataSet CSVDataset { get; set; } = new DataSet();
 
-        public CSVConverter(string[] lines, string delimiter)
+        public CSVConverter(string[] lines, string delimiter,string filePath)
         {
-            ToDataTable(lines, delimiter);
+            ToDataTable(lines, delimiter,filePath);
         }
         public DataSet GetDataSet() => CSVDataset;
-        public DataTable GetDataTable(string tableName) => CSVDataset?.Tables[tableName] ?? new DataTable();
-        private void ToDataTable(string[] lines, string delimiter)
+        public DataTable GetDataTable(string? tableName = null) => (tableName is null ? CSVDataset.Tables[0]: CSVDataset?.Tables[tableName]) ?? new DataTable();
+        private void ToDataTable(string[] lines, string delimiter,string filePath)
         { 
             int columnCount = lines.Max(item => item.Split(delimiter).Length);
-            DataTable dt = CreateDataTable(columnCount); 
+            DataTable dt = CreateDataTable(columnCount,filePath); 
             foreach(var item in lines)
             {
                 dt = InsertRows(dt,item,delimiter);
             }
             CSVDataset.Tables.Add(dt);
         }
-        private DataTable CreateDataTable(int columnCount)
+        private DataTable CreateDataTable(int columnCount,string filePath)
         {
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable(Path.GetFileNameWithoutExtension(filePath));
             for (int i = 1; i <= columnCount; i++)
             {
                 dt.Columns.Add(i.ToString(), typeof(string));

@@ -35,7 +35,7 @@ namespace ExcelConverter.Factories
         private static ExcelConverter.Logics.CSVConverter CSVConverter(string filePath,string delimiter)
         {
             var lines = File.ReadAllLines(filePath);
-            return new ExcelConverter.Logics.CSVConverter(lines,delimiter);
+            return new ExcelConverter.Logics.CSVConverter(lines,delimiter,filePath);
         }
     }
 }

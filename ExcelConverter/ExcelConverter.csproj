@@ -1,17 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
-  <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml" Version="3.3.0" />
-  </ItemGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>MyCompany.BLL</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Ruben Tambunan</Authors>
+		<Company>MyCompany</Company>
+		<Description>Business Logic Layer for MyCompany projects</Description>
+		<PackageOutputPath>..\nuget-packages</PackageOutputPath>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DocumentFormat.OpenXml" Version="3.3.0" />
+	</ItemGroup>
+
 
 </Project>

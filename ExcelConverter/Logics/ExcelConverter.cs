@@ -13,14 +13,14 @@ namespace ExcelConverter.Logics
 {
     public class ExcelConverter : IConverter
     {
-        private DataSet? ExcelDataSet { get; set; } = new DataSet();
+        private DataSet ExcelDataSet { get; set; } = new DataSet();
 
         public ExcelConverter(MemoryStream stream)
         {
             ToDataSet(stream);
             //convert_excel(stream);
         }
-        public DataTable GetDataTable(string tableName) => ExcelDataSet?.Tables[tableName] ?? new DataTable();
+        public DataTable GetDataTable(string? tableName = null) => (tableName is null ? ExcelDataSet.Tables[0] : ExcelDataSet?.Tables[tableName]) ?? new DataTable();
         public DataSet GetDataSet() => ExcelDataSet ?? new DataSet();
         private void ToDataSet(MemoryStream stream)
         {
@@ -34,7 +34,7 @@ namespace ExcelConverter.Logics
                     Worksheet worksheet = worksheetPart.Worksheet;
                     SheetData sheetData = worksheet.GetFirstChild<SheetData>()!;
                     List<Dictionary<string, string>> ExcelListObj = new List<Dictionary<string, string>>();
-                    string sheetName = sheet.Name;
+                    string sheetName = sheet.Name!;
 
                     foreach (Row row in sheetData.Elements<Row>())
                     {
@@ -42,12 +42,11 @@ namespace ExcelConverter.Logics
                         Dictionary<string, string> ExcelObj = new Dictionary<string, string>();
                         foreach (Cell cell in cellArr)
                         {
-                            string key = cell.CellReference;
+                            string key = cell.CellReference!;
                             string value = cell != null ? GetCellValue(doc, cell) ?? "null" : "null";
                             ExcelObj[key] = value;
                         }
 
-                        string a = "";
                         ExcelListObj.Add(ExcelObj);
                     }
                     DataTable dt = ConvertDictToDataTable(ExcelListObj, sheetName!);
