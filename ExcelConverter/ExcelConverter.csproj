@@ -8,9 +8,8 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>MyCompany.BLL</PackageId>
 		<Version>1.0.0</Version>
-		<Authors>Ruben Tambunan</Authors>
-		<Company>MyCompany</Company>
-		<Description>Business Logic Layer for MyCompany projects</Description>
+		<Authors>Ruben Tambunan</Authors> 
+		<Description>Make it easier to convert excel and flat file into System.Data.DataSet</Description>
 		<PackageOutputPath>..\nuget-packages</PackageOutputPath>
 
 	</PropertyGroup>
