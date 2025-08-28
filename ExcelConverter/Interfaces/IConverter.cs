@@ -9,7 +9,7 @@ namespace ExcelConverter.Interfaces
 {
     public interface IConverter
     {
-        DataTable GetDataTable(string tablename);
+        DataTable GetDataTable(string? tablename = null);
         DataSet GetDataSet();
     }
 }
