@@ -7,9 +7,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
-using ExcelConverter.Interfaces;
+using FileToDataset.Interfaces;
 
-namespace ExcelConverter.Logics
+namespace FileToDataset.Logics
 {
     public class ExcelConverter : IConverter
     {

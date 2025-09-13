@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExcelConverter.Interfaces
+namespace FileToDataset.Interfaces
 {
     public interface IConverter
     {

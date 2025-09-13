@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DocumentFormat.OpenXml.Math;
-using ExcelConverter.Interfaces;
+using FileToDataset.Interfaces;
 
-namespace ExcelConverter.Factories
+namespace FileToDataset.Factories
 {
     public static class ConverterFactory
     { 
@@ -25,17 +25,17 @@ namespace ExcelConverter.Factories
             };
         }
 
-        private static ExcelConverter.Logics.ExcelConverter GetExcelConverter(string filePath)
+        private static FileToDataset.Logics.ExcelConverter GetExcelConverter(string filePath)
         {
             var excelByte = File.ReadAllBytes(filePath);
             MemoryStream stream = new MemoryStream(excelByte); 
-            return new ExcelConverter.Logics.ExcelConverter(stream);
+            return new FileToDataset.Logics.ExcelConverter(stream);
         }
 
-        private static ExcelConverter.Logics.CSVConverter CSVConverter(string filePath,string delimiter)
+        private static FileToDataset.Logics.CSVConverter CSVConverter(string filePath,string delimiter)
         {
             var lines = File.ReadAllLines(filePath);
-            return new ExcelConverter.Logics.CSVConverter(lines,delimiter,filePath);
+            return new FileToDataset.Logics.CSVConverter(lines,delimiter,filePath);
         }
     }
 }
