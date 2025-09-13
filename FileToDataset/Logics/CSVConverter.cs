@@ -1,5 +1,5 @@
 ﻿using DocumentFormat.OpenXml.ExtendedProperties;
-using ExcelConverter.Interfaces;
+using FileToDataset.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExcelConverter.Logics
+namespace FileToDataset.Logics
 {
     public class CSVConverter : IConverter
     {

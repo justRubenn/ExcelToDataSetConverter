@@ -1,5 +1,5 @@
-﻿using ExcelConverter.Factories;
-using ExcelConverter.Interfaces;
+﻿using FileToDataset.Factories;
+using FileToDataset.Interfaces;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
 
-namespace ExcelConverterTest.Tests
+namespace FileToDataset.Tests
 {
     public class ExcelConverterTest
     {
